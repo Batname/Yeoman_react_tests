@@ -1,5 +1,11 @@
 @import "./../index.scss";
 
-#calculator-main{
+#home{
   @include outer-container(765px);
+  #calculator{
+    @include span-columns(8);
+  }
+  #tweets{
+    @include span-columns(4);
+  }
 }

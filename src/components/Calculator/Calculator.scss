@@ -1,0 +1,16 @@
+@import "./../index.scss";
+
+#calculator-result{
+  min-height: 100px;
+  @extend .outer-blocks;
+  .content{
+    @extend .content-block;
+  }
+}
+#calculator-input{
+  min-height: 400px;
+  @extend .outer-blocks;
+  .content{
+    @extend .content-block;
+  }
+}

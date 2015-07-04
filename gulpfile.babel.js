@@ -20,6 +20,8 @@ const $ = gulpLoadPlugins();
 const argv = minimist(process.argv.slice(2));
 const src = Object.create(null);
 
+process.env.UV_THREADPOOL_SIZE = 100;
+
 let watch = false;
 let browserSync;
 

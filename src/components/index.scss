@@ -1,2 +1,14 @@
 @import "./../../node_modules/node-bourbon/node_modules/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "./../../node_modules/node-neat/node_modules/bourbon-neat/app/assets/stylesheets/_neat.scss";
+
+.content-block{
+  padding: 10px;
+}
+
+.outer-blocks{
+  display: block;
+  margin: 10px 0;
+  box-shadow: 0 0 0 1px #efe8d5;
+  border-radius: 3px;
+  background-color: #FFF;
+}

@@ -1,0 +1,9 @@
+@import "./../index.scss";
+
+#tweets{
+  min-height: 500px;
+  @extend .outer-blocks;
+  .content{
+    @extend .content-block;
+  }
+}
