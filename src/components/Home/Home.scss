@@ -1,0 +1,5 @@
+@import "./../index.scss";
+
+#calculator-main{
+  @include outer-container(765px);
+}
