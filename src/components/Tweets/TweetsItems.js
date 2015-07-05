@@ -1,22 +1,31 @@
 import React from 'react';
+import AppStore from './../../stores/AppStore.js';
+
+function getTweetItems () {
+  return {items: AppStore.getTweetItems()};
+}
 
 let TweetsItems = {
   getInitialState() {
-    return {
-      items: [{name: 'Bat', message: 'Hello'}, {name: 'Den', message: 'Bay'}]
-    };
+    return getTweetItems();
+  },
+  componentWillMount() {
+    AppStore.onChange(this.onChange);
+  },
+  onChange() {
+    this.setState(getTweetItems());
   },
   render() {
-    let items = this.state.items.map((item) => {
+    let items = this.state.items.map((item, i) => {
       return (
-          <tr>
+          <tr key={i}>
             <td>{item.name}</td>
-            <td>{item.message}</td>
+            <td>{item.handle}</td>
           </tr>
         );
     });
     return (
-        <span>{items}</span>
+        <tbody>{items}</tbody>
     );
   }
 };

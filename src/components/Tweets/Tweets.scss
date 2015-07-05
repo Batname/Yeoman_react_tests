@@ -5,5 +5,8 @@
   @extend .outer-blocks;
   .content{
     @extend .content-block;
+    .table{
+      min-height: 300px;
+    }
   }
 }

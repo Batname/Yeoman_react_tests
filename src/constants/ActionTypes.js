@@ -5,5 +5,6 @@ import keyMirror from 'react/lib/keyMirror';
 export default keyMirror({
   GET_PAGE: null,
   RECEIVE_PAGE: null,
-  CHANGE_LOCATION: null
+  CHANGE_LOCATION: null,
+  LOAD_TWEETS: 'LOAD_TWEETS'
 });

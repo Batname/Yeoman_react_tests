@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Tweets.scss';
 import withStyles from '../../decorators/withStyles';
 import TweetsItems from './TweetsItems.js';
+import LoadTweets from './LoadTweets.js';
 
 @withStyles(styles)
 class Tweets {
@@ -13,17 +14,18 @@ class Tweets {
     return (
       <div className="Tweets" id="tweets">
         <div className="content">
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Message</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div className ="table">
+            <table className="table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
               <TweetsItems />
-            </tbody>
-          </table>
+            </table>
+          </div>
+          <LoadTweets />
         </div>
       </div>
     );

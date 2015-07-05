@@ -3,11 +3,13 @@
 import EventEmitter from 'eventemitter3';
 import Dispatcher from '../core/Dispatcher';
 import ActionTypes from '../constants/ActionTypes';
+import _ from 'lodash';
 
 const CHANGE_EVENT = 'change';
 
 var pages = {};
 var loading = false;
+var tweets = [{name: 'Bat', handle: 'Hello'}, {name: 'Den', handle: 'Bay'}, {name: 'Darian', handle: 'Yep'}];
 
 var AppStore = Object.assign({}, EventEmitter.prototype, {
 
@@ -50,6 +52,14 @@ var AppStore = Object.assign({}, EventEmitter.prototype, {
    */
   off(callback) {
     this.removeListener(CHANGE_EVENT, callback);
+  },
+
+  getTweetItems() {
+    return tweets;
+  },
+
+  addTweet(tweet){
+    tweets.push(tweet);
   }
 
 });
@@ -68,6 +78,13 @@ AppStore.dispatchToken = Dispatcher.register((action) => {
       if (!action.err) {
         pages[action.page.path] = action.page;
       }
+      AppStore.emitChange();
+      break;
+
+    case ActionTypes.LOAD_TWEETS:
+      loading = true;
+      let tweet = _.assign({}, {name: action.data.user.name, handle: action.data.message});
+      AppStore.addTweet(tweet);
       AppStore.emitChange();
       break;
 
