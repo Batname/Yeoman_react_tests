@@ -15,6 +15,7 @@ const argv = minimist(process.argv.slice(2));
 const DEBUG = !argv.release;
 const STYLE_LOADER = 'style-loader/useable';
 const CSS_LOADER = DEBUG ? 'css-loader' : 'css-loader?minimize';
+const JADE_LOADER = 'jade-loader'
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -67,6 +68,10 @@ const config = {
     ],
 
     loaders: [
+      {
+        test: /\.jade$/,
+        loader: `${JADE_LOADER}`
+      },
       {
         test: /\.css$/,
         loader: `${STYLE_LOADER}!${CSS_LOADER}!postcss-loader`

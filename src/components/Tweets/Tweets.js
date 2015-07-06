@@ -22,7 +22,7 @@ class Tweets {
                   <th>Message</th>
                 </tr>
               </thead>
-              <TweetsItems />
+              <TweetsItems label="TweetsItems"/>
             </table>
           </div>
           <LoadTweets />
