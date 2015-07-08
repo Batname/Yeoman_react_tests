@@ -82,7 +82,7 @@ const config = {
       },
       {
         test: /\.scss$/,
-        loader: `${STYLE_LOADER}!${CSS_LOADER}!postcss-loader!sass-loader`
+        loader: `${STYLE_LOADER}!${CSS_LOADER}!sass-loader`
       },
       {
         test: /\.gif/,

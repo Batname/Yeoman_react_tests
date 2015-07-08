@@ -12,5 +12,18 @@
   @extend .outer-blocks;
   .content{
     @extend .content-block;
+    .calculator-table{
+      @include row();
+      width: 100%;
+      .col{
+        @include display(inline);
+        text-align: center;
+        @include size(auto 70px);
+        .field{
+          @include size(100px 50px);
+          font-size: x-large;
+        }
+      }
+    }
   }
 }

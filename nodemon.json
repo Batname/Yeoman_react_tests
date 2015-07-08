@@ -1,4 +1,4 @@
 {
   "verbose": true,
-  "ignore": ["*.test.js", "node_modules/**/*", "build/**/*", "src/**/*", "webpack.config.js"]
+  "ignore": ["*.test.js", "node_modules/**/*", "build/**/*", "src/**/*", "libs/**/*", "webpack.config.js"]
 }
