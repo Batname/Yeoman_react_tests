@@ -3,7 +3,9 @@
 import React from 'react';
 import styles from './Footer.scss';
 import withStyles from '../../decorators/withStyles';
+import withViewport from '../../decorators/withViewport';
 
+@withViewport
 @withStyles(styles)
 
 class Footer {

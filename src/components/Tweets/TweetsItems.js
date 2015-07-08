@@ -19,7 +19,6 @@ let TweetsItemsMixin = {
     };
   },
   componentDidMount(){
-    console.log(this);
   }
 };
 

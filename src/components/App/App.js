@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from 'react';
 import styles from './App.scss';
+import withDebugger from '../../decorators/withDebugger';
 import withStyles from '../../decorators/withStyles';
 import Home from '../Home';
 import Header from '../Header';
@@ -9,6 +10,7 @@ import Footer from '../Footer';
 
 const pages = {Home};
 
+@withDebugger
 @withStyles(styles)
 class App {
 
