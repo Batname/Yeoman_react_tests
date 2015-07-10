@@ -1,10 +1,40 @@
 @import "./../index.scss";
 
+@mixin border-radius-all($radius){
+  @include border-top-radius($radius);
+  @include border-right-radius($radius);
+  @include border-bottom-radius($radius);
+  @include border-left-radius($radius);
+}
+
 #calculator-result{
   min-height: 100px;
   @extend .outer-blocks;
   .content{
     @extend .content-block;
+    .output{
+      @include border-width(1px);
+      @include border-color(#C0C0C0);
+      @include border-style(solid);
+      @include border-radius-all(5px);
+      @include padding(null 10px null null);
+      text-align: right;
+      @include size(100% 100px);
+      &:before {
+        content: '';
+        @include display(inline-block);
+        @include size(auto 100px);
+        vertical-align: middle;
+      }
+      .inner {
+        @include display(inline-block);
+        vertical-align: middle;
+        font-size: 4em;
+      }
+    }
+  }
+  input{
+    @include size(100% 100px);
   }
 }
 #calculator-input{
