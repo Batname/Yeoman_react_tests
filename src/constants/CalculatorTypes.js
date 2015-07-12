@@ -1,0 +1,10 @@
+import keyMirror from 'react/lib/keyMirror';
+
+export default keyMirror({
+  NUMBER_ACTION: 'NUMBER_ACTION',
+  ADD_ACTION: 'ADD_ACTION',
+  SUBTRACT_ACTION: 'SUBTRACT_ACTION',
+  MYLTIPLY_ACTION: 'MYLTIPLY_ACTION',
+  DEVIDE_ACTION: 'DEVIDE_ACTION',
+  RESULT_ACTION: 'RESULT_ACTION'
+});

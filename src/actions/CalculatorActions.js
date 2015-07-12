@@ -1,30 +1,45 @@
-import {Calculator} from '../constants/ActionTypes';
+import CalculatorTypes from '../constants/CalculatorTypes';
 import Dispatcher from '../core/Dispatcher';
 
 let CalculatorActions = {
   number(options){
     Dispatcher.dispatch({
-      type: Calculator.SET_NUMBER,
+      type: CalculatorTypes.NUMBER_ACTION,
       options
     });
   },
   divide(options){
-    console.log(options, 'CalculatorActions');
+    Dispatcher.dispatch({
+      type: CalculatorTypes.DEVIDE_ACTION,
+      options
+    });
   },
   multiply(options){
-    console.log(options, 'CalculatorActions');
+    Dispatcher.dispatch({
+      type: CalculatorTypes.MYLTIPLY_ACTION,
+      options
+    });
   },
   subtract(options){
-    console.log(options, 'CalculatorActions');
+    Dispatcher.dispatch({
+      type: CalculatorTypes.SUBTRACT_ACTION,
+      options
+    });
   },
   add(options){
-    console.log(options, 'CalculatorActions');
+    Dispatcher.dispatch({
+      type: CalculatorTypes.ADD_ACTION,
+      options
+    });
   },
   point(options){
     console.log(options, 'CalculatorActions');
   },
   equal(options){
-    console.log(options, 'CalculatorActions');
+    Dispatcher.dispatch({
+      type: CalculatorTypes.RESULT_ACTION,
+      options
+    });
   }
 };
 

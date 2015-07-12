@@ -9,7 +9,7 @@ function getCatalog () {
 let CalculatorResult = {
   mixins: [calculatorWatchMixin(getCatalog)],
   render() {
-    console.log('render', this.state.result);
+    // console.log('render', this.state.result);
     return (
       <div className="CalculatorResult" id="calculator-result">
         <div className="content">

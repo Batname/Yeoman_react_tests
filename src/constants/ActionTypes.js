@@ -6,8 +6,5 @@ export default keyMirror({
   GET_PAGE: null,
   RECEIVE_PAGE: null,
   CHANGE_LOCATION: null,
-  LOAD_TWEETS: 'LOAD_TWEETS',
-  Calculator: {
-    SET_NUMBER: 'SET_NUMBER'
-  }
+  LOAD_TWEETS: 'LOAD_TWEETS'
 });

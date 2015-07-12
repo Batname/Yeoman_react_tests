@@ -50,12 +50,12 @@ function getState () {
             7: {value: 7, type: 'number'},
             8: {value: 8, type: 'number'},
             9: {value: 9, type: 'number'},
-            divide: {value: '÷', type: 'divide'},
-            multiply: {value: '×', type: 'multiply'},
-            subtract: {value: '-', type: 'subtract'},
-            add: {value: '+', type: 'add'},
-            point: {value: '.', type: 'point'},
-            equal: {value: '=', type: 'equal'}
+            divide: {value: '÷', symbol: '÷', type: 'divide'},
+            multiply: {value: '×', symbol: '×', type: 'multiply'},
+            subtract: {value: '-', symbol: '-', type: 'subtract'},
+            add: {value: '+', symbol: '+', type: 'add'},
+            point: {value: '.', symbol: '.', type: 'point'},
+            equal: {value: '=', symbol: '=', type: 'equal'}
           };
 }
 
