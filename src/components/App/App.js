@@ -21,8 +21,8 @@ class App {
     let component;
 
     switch (this.props.path) {
-      case '/':
-      case 'music':
+      case `${window.GlobalConstants.basePath}`:
+      case 'flexcalculator':
         component = React.createElement(pages.Home);
         break;
     }
