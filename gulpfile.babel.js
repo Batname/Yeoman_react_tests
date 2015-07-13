@@ -127,3 +127,8 @@ gulp.task('pagespeed', cb => {
     // key: 'YOUR_API_KEY'
   }, cb);
 });
+
+gulp.task('copy-prod', () => {
+  gulp.src('build/public/**/*')
+    .pipe(gulp.dest('../flexcalculator'));
+});
