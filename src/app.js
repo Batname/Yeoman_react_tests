@@ -6,7 +6,7 @@ import App from './components/App';
 import FastClick from 'fastclick';
 
 
-let path = decodeURI(window.location.pathname);
+let path = `${window.GlobalConstants.basePath}`;
 
 function run(){
   let props = {
