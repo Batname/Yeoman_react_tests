@@ -46,7 +46,7 @@
       @include row();
       width: 100%;
       .col{
-        @include display(inline);
+        @include display(table-cell);
         text-align: center;
         @include size(auto 70px);
         .field{

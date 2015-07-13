@@ -76,7 +76,7 @@
     ]
   },
   "scripts": {
-    "start": "PORT=3000 NODE_ENV=development LOCALE=en nodemon index",
+    "start": "PORT=3333 NODE_ENV=development LOCALE=en nodemon index",
     "lint": "eslint src gulpfile.babel.js webpack.config.js && csscomb src/components --lint",
     "comb": "csscomb src/components --verbose",
     "test": "eslint src && jest",

@@ -107,6 +107,65 @@ gulp.task('build:watch', cb => {
   });
 });
 
+// Launch a Node.js/Express server
+gulp.task('serve', ['build:watch'], cb => {
+  src.server = [
+    'build/server.js',
+    'build/content/**/*',
+    'build/templates/**/*'
+  ];
+  let started = false;
+  let server = (function startup() {
+    const child = cp.fork('build/server.js', {
+      env: Object.assign({NODE_ENV: 'development'}, process.env)
+    });
+    child.once('message', message => {
+      if (message.match(/^online$/)) {
+        if (browserSync) {
+          browserSync.reload();
+        }
+        if (!started) {
+          started = true;
+          gulp.watch(src.server, function() {
+            $.util.log('Restarting development server.');
+            server.kill('SIGTERM');
+            server = startup();
+          });
+          cb();
+        }
+      }
+    });
+    return child;
+  })();
+
+  process.on('exit', () => server.kill('SIGTERM'));
+});
+
+// Launch BrowserSync development server
+gulp.task('sync', ['serve'], cb => {
+  browserSync = require('browser-sync');
+
+  browserSync({
+    logPrefix: 'RSK',
+    notify: false,
+    // Run as an https by setting 'https: true'
+    // Note: this uses an unsigned certificate which on first access
+    //       will present a certificate warning in the browser.
+    https: false,
+    // Informs browser-sync to proxy our Express app which would run
+    // at the following location
+    proxy: 'localhost:5000'
+  }, cb);
+
+  process.on('exit', () => browserSync.exit());
+
+  gulp.watch(['build/**/*.*'].concat(
+    src.server.map(file => '!' + file)
+  ), file => {
+    browserSync.reload(path.relative(__dirname, file.path));
+  });
+});
+
 // Deploy via Git
 gulp.task('deploy', cb => {
   const push = require('git-push');

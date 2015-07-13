@@ -55,6 +55,7 @@ server.get('*', async (req, res, next) => {
     }
     res.send(html);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
