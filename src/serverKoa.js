@@ -1,5 +1,10 @@
 "use strict";
 
+import 'babel/polyfill';
+import _ from 'lodash';
+import fs from 'fs';
+import path from 'path';
+import React from 'react';
 import koa from 'koa';
 import co from 'co';
 import views from 'co-views';
@@ -7,10 +12,19 @@ import cors from "koa-cors";
 import serve from 'koa-static';
 import route from 'koa-route';
 
+// frontend import
+function getFrontendData(){
+  return {
+    locale: process.env.LOCALE,
+    description: 'Hello server React Yo ho',
+    title: 'Hello server React',
+    body: React.renderToString(<div>Hello server React Yo ho</div>),
+  }
+}
 
 let app = koa();
 
-let render = views(__dirname + "/src", { map: { html: 'jade' }});
+let render = views(__dirname + "/", { map: { html: 'jade' }});
 
 app.use(cors({
   maxAge: 1000,
@@ -28,7 +42,7 @@ app.use(serve('build/public'));
 
 app.use(route.get("/", function *() {
   let body, data;
-  body = yield render('index.jade', { locale: process.env.LOCALE , title: "Egghead app"});
+  body = yield render('index.jade', getFrontendData());
   this.status = 201;
   this.body = body;
 }));

@@ -14,6 +14,7 @@ import minimist from 'minimist';
 const argv = minimist(process.argv.slice(2));
 const DEBUG = !argv.release;
 const STYLE_LOADER = 'style-loader/useable';
+const SASS_LOADER = 'sass-loader';
 const CSS_LOADER = DEBUG ? 'css-loader' : 'css-loader?minimize';
 const JADE_LOADER = 'jade-loader'
 const AUTOPREFIXER_BROWSERS = [
